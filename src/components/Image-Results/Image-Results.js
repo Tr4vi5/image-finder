@@ -35,7 +35,7 @@ class ImageResults extends Component {
 
       if(images){
         imageListContent = (
-            <GridList cols={3}>
+            <GridList cols={1}>
                 {images.map(img => (
                     <GridTile
                         title={img.tags}
@@ -75,7 +75,6 @@ class ImageResults extends Component {
         >
             <img src={this.state.currentImg} style={{width: '100%'}}/>
         </Dialog>
-        />
       </div>
     )
   }

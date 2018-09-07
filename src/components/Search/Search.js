@@ -11,6 +11,7 @@ class Search extends Component {
         super(props);
         this.state = {
             searchText: '',
+            searchType: '',
             amount: 15,
             apiUrl: 'https://pixabay.com/api',
             apiKey: '10037788-ac76dc3ba2e7870354bbad421',
@@ -41,6 +42,12 @@ class Search extends Component {
         })
     }
 
+    searchTypeChange = (e, index, value) => {
+        this.setState({
+            searchType: value
+        })
+    }
+
 
     render() {
         console.log(this.state.images);
@@ -50,10 +57,19 @@ class Search extends Component {
                     name="searchText"
                     value={this.state.searchText}
                     onChange={this.onTextChange}
-                    floatingLabelText="Search For Images"
+                    floatingLabelText="Search PixaBay"
                     fullWidth={true}
                 />
                 <br />
+                <SelectField
+                    name="searchType"
+                    value={this.state.searchType}
+                    floatingLabelText="Search Type"
+                    onChange={this.searchTypeChange}
+                >
+                    <MenuItem value={'image'} primaryText="Images" />
+                    <MenuItem value={'video'} primaryText="Videos" />
+                </SelectField>
                 <SelectField
                     name="amount"
                     floatingLabelText="Amount"
