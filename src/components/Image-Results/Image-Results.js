@@ -7,6 +7,28 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 class ImageResults extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            open: false,
+            currentImg: '',
+        }
+    }
+
+    handleOpen = (image) =>{
+        this.setState({
+            open: true,
+            currentImg: image
+        })
+    }
+
+    handleClose = () => {
+        this.setState({
+            open: false,
+        })
+    }
+
+
   render() {
       let imageListContent;
       const { images } = this.props;
@@ -24,7 +46,7 @@ class ImageResults extends Component {
                             </span>
                         }
                         actionIcon={
-                            <IconButton>
+                            <IconButton onClick={() => this.handleOpen(img.largeImageURL)}>
                                 <ZoomIn color="white" />
                             </IconButton>
                         }
@@ -38,9 +60,22 @@ class ImageResults extends Component {
         imageListContent = null;
       }
 
+      const actions = [
+          <FlatButton label="close" primary={true} onClick={this.handleClose} />
+      ]
+
     return (
       <div>
         {imageListContent}
+        <Dialog
+            actions={actions}
+            modal={false}
+            open={this.state.open}
+            onRequestClose={this.handleClose}
+        >
+            <img src={this.state.currentImg} style={{width: '100%'}}/>
+        </Dialog>
+        />
       </div>
     )
   }
