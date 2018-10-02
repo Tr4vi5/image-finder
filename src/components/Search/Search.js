@@ -6,6 +6,7 @@ import axios from 'axios';
 import ImageResults from '../Image-Results/Image-Results.js'
 
 
+
 class Search extends Component {
     constructor(props) {
         super(props);

@@ -5,6 +5,8 @@ import IconButton from 'material-ui/IconButton';
 import ZoomIn from 'material-ui/svg-icons/action/zoom-in';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import withStyles from '@material-ui/core/styles';
+
 
 class ImageResults extends Component {
     constructor(props){
@@ -35,7 +37,7 @@ class ImageResults extends Component {
 
       if(images){
         imageListContent = (
-            <GridList cols={1}>
+            <GridList cols={5}>
                 {images.map(img => (
                     <GridTile
                         title={img.tags}
