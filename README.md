@@ -3,7 +3,7 @@ This is a serverless application built to learn how to use the Pixabay image sea
 
 ---
 
-##Built With
+## Built With
 
 * React
 * Material Design
@@ -35,5 +35,5 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Stretch goals
 
-- [] Add video search
+- [ ] Add video search
 
